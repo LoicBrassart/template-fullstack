@@ -23,59 +23,16 @@
 
 ### /etc/caddy/Caddyfile
 
-```
-# Default
-mydomain.ovh {
-        root * /usr/share/caddy
-        file_server
-}
-
-# Webhooks
-hooks.mydomain.ovh {
-        reverse_proxy localhost:9000
-}
-
-# DEV du projet Template
-dev.template.mydomain.ovh {
-        reverse_proxy localhost:8001
-}
-
-# STG du projet Template
-stg.template.mydomain.ovh {
-        reverse_proxy localhost:8002
-}
-
-# PRD du projet Template
-template.mydomain.ovh {
-        reverse_proxy localhost:8003
-}
-```
-
-- Chaque bloc dans ce fichier concerne une app distincte.
+- Chaque bloc dans ce fichier concerne une _app_ distincte.
   - Le numéro de port doit correspondre avec le port ouvert pour le container gateway (nginx) de l'app concernée.
 - Le bloc concernant les hooks ne doit pas être supprimé: c'est lui qui permet à webhook de recevoir les appels depuisl l'extérieur
 
 ### /etc/webhook.conf
 
-```
-[
-  {
-    "id": "dev-template",
-    "execute-command": "/home/ubuntu/www/apps/template/dev.deploy.sh",
-    "command-working-directory": "/home/ubuntu/www/apps/template"
-  },
-  {
-    "id": "stg-template",
-    "execute-command": "/home/ubuntu/www/apps/template/stg.deploy.sh",
-    "command-working-directory": "/home/ubuntu/www/apps/template"
-  },
-  {
-    "id": "prd-template",
-    "execute-command": "/home/ubuntu/www/apps/template/prd.deploy.sh",
-    "command-working-directory": "/home/ubuntu/www/apps/template"
-  }
-]
-```
+- Chaque bloc dans ce fichier concerne un _environnement_ distinct.
+  - L'`id` doit être unique et sera visible dans l'url du hook à appeler
+  - `execute-command` peut être une commande système ou un script bash exécutable
+  - `command-working-directory` représente le dossier dans lequel la comande précédente doit être lancée
 
 # Procédure de déploiement sur VPS
 

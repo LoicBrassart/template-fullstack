@@ -1,0 +1,23 @@
+# Base
+mydomain.ovh {
+	root * /usr/share/caddy
+	file_server
+}
+
+# Webhooks
+hooks.mydomain.ovh {
+        reverse_proxy localhost:9000
+}
+
+# Apps
+dev.template.mydomain.ovh {
+        reverse_proxy localhost:8001
+}
+
+stg.template.mydomain.ovh {
+        reverse_proxy localhost:8002
+}
+
+template.mydomain.ovh {
+        reverse_proxy localhost:8003
+}

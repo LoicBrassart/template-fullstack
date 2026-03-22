@@ -20,4 +20,4 @@ const start = async () => {
     listen: { port: Number(env.SERVICE_PORT) },
   });
 };
-start();
+start().catch(console.error);
