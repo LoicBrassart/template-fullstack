@@ -72,3 +72,10 @@
   - bouton "MeP !" -> ping vps
     - cd prd
     - docker compose up
+
+## Step 5 : Sauvegarde des données
+
+- Mettre en place les migrations TypeORM pour les environnements stg/prd
+- Creation d'un backup de prd, hébergé sur un GDrive
+- Crontab sur le backup
+- Restaurer un backup vers stg, depuis un GDrive
