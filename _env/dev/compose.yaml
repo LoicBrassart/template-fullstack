@@ -21,6 +21,7 @@ services:
       database:
         condition: service_healthy
     environment:
+      ENV: ${ENV}
       SERVICE_PORT: ${SERVICE_PORT}
       DB_PASSWORD: ${DB_PASSWORD}
       DB_DATABASE: ${DB_DATABASE}
@@ -71,6 +72,7 @@ services:
     volumes:
       - ../../frontend/src:/app/src/
     environment:
+      ENV: ${ENV}
       CHOKIDAR_USEPOLLING: true # Windows limitation
       VITE_PORT: ${SERVICE_PORT}
       GATEWAY_PORT: ${GATEWAY_PORT}

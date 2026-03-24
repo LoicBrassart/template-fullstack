@@ -19,6 +19,7 @@ services:
       database:
         condition: service_healthy
     environment:
+      ENV: ${ENV}
       SERVICE_PORT: ${SERVICE_PORT}
       DB_PASSWORD: ${DB_PASSWORD}
       DB_DATABASE: ${DB_DATABASE}
@@ -63,6 +64,7 @@ services:
           "curl -m 5 --fail --request GET --url 'http://frontend:${SERVICE_PORT}' || exit 1",
         ]
     environment:
+      ENV: ${ENV}
       VITE_PORT: ${SERVICE_PORT}
       GATEWAY_PORT: ${GATEWAY_PORT}
     depends_on:
