@@ -1,5 +1,5 @@
 {
-  "name": "roleet-reboot",
+  "name": "template-fullstack",
   "version": "1.0.0",
   "workspaces": [
     "frontend",

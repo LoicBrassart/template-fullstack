@@ -12,4 +12,4 @@ jobs:
     steps:
       - name: Notify prd server
         run: |
-          curl -X GET https://hooks.${{ secrets.DOMAIN_URL }}/hooks/stg-${{ secrets.APP_NAME }}
+          curl -X GET https://hooks.${{ secrets.DOMAIN_URL }}/hooks/prd-${{ secrets.APP_NAME }}

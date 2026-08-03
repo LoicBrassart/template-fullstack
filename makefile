@@ -23,6 +23,6 @@ stop:
 clean:
 	docker system prune -af --volumes;
 
-fire:
-	docker stop $(shell docker ps -a -q) || true;
-	docker system prune -af --volumes; \
+# fire:
+# 	docker stop $(shell docker ps -a -q) || true;
+# 	docker system prune -af --volumes; \
