@@ -1,4 +1,4 @@
-Ce fichier guide les agents IA travaillant sur ce repo. Portée : infra/tooling (`_env/`, `_vps/`, `.github/`, `makefile`).
+Ce fichier guide les agents IA travaillant sur ce repo. Portée : infra/tooling (`_env/`, `_vps/`, `.github/`, `makefile`, `package.json` racine).
 Le frontend et le backend ont chacun leurs propres conventions (voir frontend/AGENTS.md et backend/AGENTS.md si présents).
 
 ## Commandes
@@ -35,6 +35,7 @@ Ne jamais lancer une commande Docker sans passer par le makefile sauf pour du di
 
 - Utiliser `make` plutôt que des commandes docker/compose brutes pour tout ce qui touche au cycle de vie des environnements.
 - Garder `_env/dev`, `_env/e2e`, `_env/stg` alignés en structure (même services, mêmes noms de variables .env) sauf besoin explicite.
+- Vérifier l'historique GitHub Actions avant de déclarer un pipeline cassé.
 
 ### Demander avant
 
