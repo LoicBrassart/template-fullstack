@@ -84,18 +84,7 @@ services:
     depends_on:
       database:
         condition: service_healthy
-    command:
-      [
-        "php",
-        "-d",
-        "post_max_size=${UPLOAD_SIZE}",
-        "-d",
-        "upload_max_filesize=${UPLOAD_SIZE}",
-        "-S",
-        "0.0.0.0:${SERVICE_PORT}",
-        "-t",
-        "/var/www/html",
-      ]
+    command: ["php", "-S", "0.0.0.0:${SERVICE_PORT}", "-t", "/var/www/html"]
     healthcheck:
       test:
         [

@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/LoicBrassart/roleet-reboot.git"
+    "url": "git+https://github.com/LoicBrassart/template-fullstack.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/LoicBrassart/roleet-reboot/issues"
+    "url": "https://github.com/LoicBrassart/template-fullstack/issues"
   },
-  "homepage": "https://github.com/LoicBrassart/roleet-reboot#readme",
+  "homepage": "https://github.com/LoicBrassart/template-fullstack#readme",
   "description": ""
 }
