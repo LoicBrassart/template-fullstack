@@ -1,13 +1,6 @@
 {
   "name": "template-fullstack",
   "version": "1.0.0",
-  "workspaces": [
-    "frontend",
-    "backend"
-  ],
-  "scripts": {
-    "bump": "npx npm-check-updates"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/LoicBrassart/template-fullstack.git"
