@@ -1,4 +1,4 @@
-.PHONY: stop clean
+.PHONY: stop stop
 
 run:
 	ENV=$(word 2,$(MAKECMDGOALS)); \

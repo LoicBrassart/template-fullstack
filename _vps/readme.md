@@ -3,6 +3,7 @@
 - VPS disponible
 - Caddy installé et configuré
 - Webhook installé et configuré
+- make installé
 
 # Informations
 
@@ -87,7 +88,7 @@ template.valhallacode.ovh {
 - `git clone [REPO] dev`
 - `cd dev`
 - `git checkout dev`
-- `npm run dev`
+- `make run dev`
 
 ### déploiement continu
 
