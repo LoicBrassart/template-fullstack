@@ -1,4 +1,4 @@
-.PHONY: stop stop
+.PHONY: run stop
 
 run:
 	ENV=$(word 2,$(MAKECMDGOALS)); \
@@ -19,3 +19,7 @@ stop:
 	else \
 		echo "Unknown environment: $$ENV"; \
 	fi
+
+# Catch-all to get rid of false errors
+%:
+	@:
