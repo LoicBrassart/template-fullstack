@@ -1,3 +1,6 @@
+volumes:
+  db_data:
+
 services:
   backend:
     container_name: ${ENV}-backend
@@ -33,7 +36,7 @@ services:
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -d ${DB_DATABASE} -U ${DB_USER}"]
     volumes:
-      - ./persist/database:/var/lib/postgresql
+      - db_data:/var/lib/postgresql
     environment:
       POSTGRES_PASSWORD: ${DB_PASSWORD}
       POSTGRES_DB: ${DB_DATABASE}

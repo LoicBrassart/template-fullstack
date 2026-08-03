@@ -1,7 +1,8 @@
-FROM mcr.microsoft.com/playwright:v1.58.1-jammy
+FROM node:lts-bookworm
 WORKDIR /app
 COPY e2e/package.json .
 COPY e2e/playwright.config.ts .
 RUN npm i
+RUN npx playwright install --with-deps
 COPY e2e/tests/ ./tests/
 CMD npx playwright test

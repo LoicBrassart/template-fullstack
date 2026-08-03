@@ -76,8 +76,8 @@ services:
       context: ../../
       dockerfile: _env/${ENV}/Dockerfile.e2e
     volumes:
-      - ./persist/playwright/report:/app/playwright-report
-      - ./persist/playwright/results:/app/tests-results
+      - ../../_artifacts/e2e/playwright-report:/app/playwright-report
+      - ../../_artifacts/e2e/test-results:/app/test-results
     depends_on:
       gateway:
         condition: service_started

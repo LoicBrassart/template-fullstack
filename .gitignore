@@ -2,5 +2,5 @@
 **/node_modules/
 **.env**
 !.env.sample
-**/_env/**/persist/
 **/dist/
+_artifacts

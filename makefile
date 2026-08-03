@@ -1,4 +1,4 @@
-.PHONY: stop clean run fire
+.PHONY: stop clean
 
 run:
 	ENV=$(word 2,$(MAKECMDGOALS)); \
@@ -19,10 +19,3 @@ stop:
 	else \
 		echo "Unknown environment: $$ENV"; \
 	fi
-
-clean:
-	docker system prune -af --volumes;
-
-# fire:
-# 	docker stop $(shell docker ps -a -q) || true;
-# 	docker system prune -af --volumes; \
