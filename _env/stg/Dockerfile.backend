@@ -1,14 +1,13 @@
-FROM node:lts-alpine AS builder
+FROM node:24.15.0-alpine AS builder
 WORKDIR /app
 COPY ../../backend/*.json .
-RUN npm i
-RUN npm i -g typescript
+RUN npm ci
 COPY ../../backend/src/ .
 RUN ["npm", "run", "build"]
 
-FROM node:lts-alpine 
+FROM node:24.15.0-alpine
 WORKDIR /app
 COPY --from=builder /app/dist ./build
 COPY ../../backend/package*.json .
-RUN npm i --production
+RUN npm ci --omit=dev
 CMD ["npm", "run", "start"]

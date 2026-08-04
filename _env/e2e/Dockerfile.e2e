@@ -1,8 +1,9 @@
-FROM node:lts-bookworm
+# Node LTS sur Debian bookworm (glibc requis par les navigateurs Playwright)
+FROM node:24.15.0-bookworm
 WORKDIR /app
 COPY e2e/package.json .
 COPY e2e/playwright.config.ts .
-RUN npm i
+RUN npm ci
 RUN npx playwright install --with-deps
 COPY e2e/tests/ ./tests/
 CMD npx playwright test

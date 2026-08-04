@@ -1,8 +1,8 @@
-FROM node:lts-alpine
+FROM node:24.15.0-alpine
 WORKDIR /app
 RUN apk --no-cache add curl
 COPY frontend/package*.json ./
-RUN npm i
+RUN npm ci
 COPY frontend/index.html ./
 COPY frontend/tsconfig*.json ./
 COPY frontend/vite.config.ts ./

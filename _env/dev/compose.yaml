@@ -32,7 +32,7 @@ services:
 
   database:
     container_name: ${ENV}-database
-    image: postgres
+    image: postgres:18.4-alpine
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -d ${DB_DATABASE} -U ${DB_USER}"]
     volumes:
@@ -45,7 +45,7 @@ services:
 
   gateway:
     container_name: ${ENV}-gateway
-    image: nginx
+    image: nginx:1.31.3-alpine3.24
     volumes:
       - ./nginx/:/etc/nginx/templates/
     ports:
@@ -83,7 +83,7 @@ services:
 
   adminer:
     container_name: ${ENV}-adminer
-    image: adminer
+    image: adminer:5.4.2
     depends_on:
       database:
         condition: service_healthy
