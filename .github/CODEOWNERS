@@ -1,1 +1,6 @@
-/**/package*.json       @LoicBrassart
+# CODEOWNERS ne supporte pas les rôles du repo (Admin/Write/Triage) : seulement des
+# comptes individuels (@user) ou, si ce repo est rattaché à une organisation GitHub,
+# des équipes (@org/team) dont la composition se gère séparément dans les settings
+# de l'org. Remplace <username> par un compte, ou par une équipe une fois sur une org.
+
+/**/package*.json       @<username>

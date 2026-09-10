@@ -26,28 +26,28 @@
 
 ```
 # Default
-valhallacode.ovh {
+<domain.tld> {
         root * /usr/share/caddy
         file_server
 }
 
 # Webhooks
-hooks.valhallacode.ovh {
+hooks.<domain.tld> {
         reverse_proxy localhost:9000
 }
 
-# DEV du projet Template
-dev.template.valhallacode.ovh {
+# DEV du projet <appname>
+dev.<appname>.<domain.tld> {
         reverse_proxy localhost:8001
 }
 
-# STG du projet Template
-stg.template.valhallacode.ovh {
+# STG du projet <appname>
+stg.<appname>.<domain.tld> {
         reverse_proxy localhost:8002
 }
 
-# PRD du projet Template
-template.valhallacode.ovh {
+# PRD du projet <appname>
+<appname>.<domain.tld> {
         reverse_proxy localhost:8003
 }
 ```
@@ -61,19 +61,19 @@ template.valhallacode.ovh {
 ```
 [
   {
-    "id": "dev-template",
-    "execute-command": "/home/ubuntu/www/apps/template/dev.deploy.sh",
-    "command-working-directory": "/home/ubuntu/www/apps/template"
+    "id": "dev-<appname>",
+    "execute-command": "/home/ubuntu/www/apps/<appname>/dev.deploy.sh",
+    "command-working-directory": "/home/ubuntu/www/apps/<appname>"
   },
   {
-    "id": "stg-template",
-    "execute-command": "/home/ubuntu/www/apps/template/stg.deploy.sh",
-    "command-working-directory": "/home/ubuntu/www/apps/template"
+    "id": "stg-<appname>",
+    "execute-command": "/home/ubuntu/www/apps/<appname>/stg.deploy.sh",
+    "command-working-directory": "/home/ubuntu/www/apps/<appname>"
   },
   {
-    "id": "prd-template",
-    "execute-command": "/home/ubuntu/www/apps/template/prd.deploy.sh",
-    "command-working-directory": "/home/ubuntu/www/apps/template"
+    "id": "prd-<appname>",
+    "execute-command": "/home/ubuntu/www/apps/<appname>/prd.deploy.sh",
+    "command-working-directory": "/home/ubuntu/www/apps/<appname>"
   }
 ]
 ```
@@ -84,7 +84,7 @@ template.valhallacode.ovh {
 
 ### premier déploiement
 
-- `cd ~/www/apps/[APP]`
+- `cd ~/www/apps/<appname>`
 - `git clone [REPO] dev`
 - `cd dev`
 - `git checkout dev`
@@ -92,7 +92,7 @@ template.valhallacode.ovh {
 
 ### déploiement continu
 
-- `~/www/apps/[APP]`
+- `~/www/apps/<appname>`
 - `nano dev.deploy.sh` (coller le contenu du fichier proposé)
 - `chmod 764 dev.deploy.sh`
 - `./dev.deploy.sh` (vérifier la bonne exécution)
@@ -104,7 +104,7 @@ template.valhallacode.ovh {
 
 ### premier déploiement
 
-- `cd ~/www/apps/[APP]`
+- `cd ~/www/apps/<appname>`
 - `mkdir stg`
 - `cd stg`
 - `nano compose.yaml` (coller le contenu du fichier proposé)
@@ -113,7 +113,7 @@ template.valhallacode.ovh {
 
 ### déploiement continu
 
-- `~/www/apps/[APP]`
+- `~/www/apps/<appname>`
 - `nano stg.deploy.sh` (coller le contenu du fichier proposé)
 - `chmod 764 stg.deploy.sh`
 - `./stg.deploy.sh` (vérifier la bonne exécution)
